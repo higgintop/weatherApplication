@@ -1,9 +1,19 @@
 var url = 'https://api.wunderground.com/api/cdc0bcea7d842ff8/forecast/q/90210.json';
+var cityUrl = 'http://api.wunderground.com/api/cdc0bcea7d842ff8/geolookup/q/90210.json'
 var zipCode;
 
+// ajax call 1
 getJSON(url, function(res){
   var initialData = res.forecast.simpleforecast.forecastday;
   document.querySelector('.container').appendChild(createContainerDiv(initialData));
+
+});
+
+// ajax call two
+getJSON(cityUrl, function(res){
+    var city = res.location.city;
+    var state = res.location.state;
+    document.querySelector('h1').innerHTML='<h1>Four Day Forecast: <h3>'+city + ', '+ state +'</h3>';
 
 });
 
@@ -90,6 +100,16 @@ document.querySelector('.submit').addEventListener('click', function(event){
      	container.removeChild(container.firstChild);
      }
      document.querySelector('.container').appendChild(createContainerDiv(initialData));
+  });
+
+
+  var updatedCityUrl = 'http://api.wunderground.com/api/cdc0bcea7d842ff8/geolookup/q/'+ zipCodeInput + '.json'
+
+  getJSON(updatedCityUrl, function(res){
+    var city = res.location.city;
+    var state = res.location.state;
+    document.querySelector('h1').innerHTML='<h1>Four Day Forecast: <h3>'+city + ', '+ state +'</h3>';
+
   });
 });
 
