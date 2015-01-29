@@ -7,5 +7,8 @@
   ],
   "description": "Weather application showing forecast via ajax call to wunderground's api",
   "main": "public/index.html",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "foundation": "~5.5.0"
+  }
 }

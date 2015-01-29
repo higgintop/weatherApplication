@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Weather application showing forecast via ajax call to wunderground",
   "main": "public/index.html",
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

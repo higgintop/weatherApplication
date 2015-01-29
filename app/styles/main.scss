@@ -1,0 +1,16 @@
+.container {
+
+	ul {
+		background-color: lightblue;
+		border: 1px solid black;
+		display: inline-block;
+		width: 200px;
+		height: 300px;
+
+		li {
+			text-align: center;
+			list-style: none;
+			padding: 5px;
+		}
+	}
+}
