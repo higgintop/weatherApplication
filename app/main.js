@@ -2,6 +2,22 @@ var url = 'https://api.wunderground.com/api/cdc0bcea7d842ff8/forecast/q/90210.js
 var cityUrl = 'http://api.wunderground.com/api/cdc0bcea7d842ff8/geolookup/q/90210.json'
 var zipCode;
 
+
+
+/// AJAX ///////////////////////////////////
+function getJSON(url, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url);
+  
+  xhr.onload = function () {
+    if (this.status >= 200 && this.status < 400) {
+      cb(JSON.parse(this.response));
+    }
+  };
+  
+  xhr.send()
+}
+
 // ajax call 1
 getJSON(url, function(res){
   var initialData = res.forecast.simpleforecast.forecastday;
@@ -16,6 +32,11 @@ getJSON(cityUrl, function(res){
     heading.appendChild(createCityStateHeading(cityState));
 });
 
+
+
+
+
+// create the documentFragment which we will append
 function createCityStateHeading(cityState){
   var docFragment = document.createDocumentFragment();
 
@@ -80,20 +101,6 @@ function createContainerDiv(objectArray) {
   
   return docFragment;
   
-}
-
-
-function getJSON(url, cb) {
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', url);
-  
-  xhr.onload = function () {
-    if (this.status >= 200 && this.status < 400) {
-      cb(JSON.parse(this.response));
-    }
-  };
-  
-  xhr.send()
 }
 
 
