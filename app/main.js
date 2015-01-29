@@ -42,7 +42,7 @@ function createCityStateHeading(cityState){
 
   var h1 = document.createElement('H1');
   docFragment.appendChild(h1);
-  var text = document.createTextNode("Four Day Forecast: ");
+  var text = document.createTextNode("Four Day Forecast");
   h1.appendChild(text);
 
   var h3 = document.createElement('H3');

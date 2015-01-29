@@ -1,13 +1,15 @@
 body {
 	text-align: center;
+	background-color: #F1F1F1;
 
 	.row {
 		border-bottom: 2px solid steelblue;
 		margin-bottom: 40px;
 
-		h1 {
-			color: steelblue;
+		h1, h3 {
+		 color: darken(#BDBDBD, 20%);
 		}
+
 	}
 
 	.zip {
@@ -23,7 +25,7 @@ body {
 			height: 250px;
 
 			box-shadow: 10px 10px 5px #888888;
-			
+
 
 			li {
 				text-align: center;
