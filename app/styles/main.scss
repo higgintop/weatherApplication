@@ -1,6 +1,15 @@
 body {
 	text-align: center;
 
+	.row {
+		border-bottom: 2px solid steelblue;
+		margin-bottom: 40px;
+
+		h1 {
+			color: steelblue;
+		}
+	}
+
 	.zip {
 		margin-left: 250px;
 	}
@@ -11,12 +20,13 @@ body {
 			border: 1px solid black;
 			display: inline-block;
 			width: 200px;
-			height: 300px;
+			height: 250px;
 
 			li {
 				text-align: center;
 				list-style: none;
 				padding: 5px;
+
 			}
 		}
 	}
