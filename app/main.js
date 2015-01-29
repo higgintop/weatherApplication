@@ -11,11 +11,27 @@ getJSON(url, function(res){
 
 // ajax call two
 getJSON(cityUrl, function(res){
-    var city = res.location.city;
-    var state = res.location.state;
-    document.querySelector('h1').innerHTML='<h1>Four Day Forecast: <h3>'+city + ', '+ state +'</h3>';
-
+    var cityState = res.location.city + ", " + res.location.state;
+    var heading = document.querySelector('h1');
+    heading.appendChild(createCityStateHeading(cityState));
 });
+
+function createCityStateHeading(cityState){
+  var docFragment = document.createDocumentFragment();
+
+  var h1 = document.createElement('H1');
+  docFragment.appendChild(h1);
+  var text = document.createTextNode("Four Day Forecast: ");
+  h1.appendChild(text);
+
+  var h3 = document.createElement('H3');
+  docFragment.appendChild(h3);
+  var text_0 = document.createTextNode(cityState);
+  h3.appendChild(text_0);
+
+  return docFragment;
+
+}
 
 
 function createContainerDiv(objectArray) {
@@ -84,14 +100,13 @@ function getJSON(url, cb) {
 //////////////////////////////////////////////////////////////////
 // event handler for input/submit
 //////////////////////////////////////////////////////////////////
-// event handler to get the zipcode from input box
+
 document.querySelector('.submit').addEventListener('click', function(event){
     var zipCodeInput = document.querySelector('.zip').value;
   // on click want to get the zip code out of the input box
   // and change the url
-  console.log("zip code = " + zipCode); 
   var updatedUrl = 'https://api.wunderground.com/api/cdc0bcea7d842ff8/forecast/q/' + zipCodeInput + '.json';
-  console.log("url: " + updatedUrl);
+  
   getJSON(updatedUrl, function(res){
      var initialData = res.forecast.simpleforecast.forecastday;
     // first delete old dom
@@ -106,9 +121,14 @@ document.querySelector('.submit').addEventListener('click', function(event){
   var updatedCityUrl = 'http://api.wunderground.com/api/cdc0bcea7d842ff8/geolookup/q/'+ zipCodeInput + '.json'
 
   getJSON(updatedCityUrl, function(res){
-    var city = res.location.city;
-    var state = res.location.state;
-    document.querySelector('h1').innerHTML='<h1>Four Day Forecast: <h3>'+city + ', '+ state +'</h3>';
+    var cityState = res.location.city + ", " + res.location.state;
+    var heading = document.querySelector('h1');
+
+    while(heading.firstChild) {
+      heading.removeChild(heading.firstChild);
+    }
+
+    heading.appendChild(createCityStateHeading(cityState));
 
   });
 });
