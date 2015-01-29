@@ -1,16 +1,18 @@
 
 
 head
-	link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.css")
+	link(rel="stylesheet", href="./vendor/foundation/css/foundation.css")
 	link(rel="stylesheet", href="../css/main.css")
 	script(src="./vendor/lodash/lodash.min.js")
 
 
 body
-	h1
-
-	input.zip(type="text", placeholder="Enter zip", value="90210")
-	button.submit Submit
+	.row
+		h1
+	
+		.large-4.columns
+			input.small-2.zip(type="text", placeholder="Enter zip", value="90210")
+		button.round.small.submit Submit
 
 	div.container
 
