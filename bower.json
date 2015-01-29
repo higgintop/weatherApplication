@@ -1,0 +1,11 @@
+{
+  "name": "weatherApplication",
+  "version": "1.0.0",
+  "homepage": "https://github.com/higgintop/weatherApplication",
+  "authors": [
+    "Allison Higginbotham <higgintop@gmail.com>"
+  ],
+  "description": "Weather application showing forecast via ajax call to wunderground's api",
+  "main": "public/index.html",
+  "license": "MIT"
+}
